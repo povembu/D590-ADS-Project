@@ -110,7 +110,7 @@ em_conv = Employed_days/365
 #Prediction button
 if st.button("Check my approval"):
 
-        with open('rfc_model.pkl','rb') as fid:
+        with open('https://github.com/povembu/D590-ADS-Project/blob/main/Streamlit/rfc_model.pkl','rb') as fid:
                 model = pickle.load(fid)
         
         pred = model.predict([[GENDER, Car_Owner, Propert_Owner, CHILDREN, Annual_income,
