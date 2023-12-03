@@ -6,3 +6,4 @@ matplotlib==3.7.2
 seaborn==0.12.2
 plotly==5.18.0
 imblearn==0.11.0
+SciPy==1.10.0
