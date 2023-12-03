@@ -3,6 +3,7 @@ import datetime
 import pandas as pd 
 import numpy as np 
 import pickle
+from pathlib import Path
 
 #Multiple page configurations
 st.set_page_config(
@@ -109,8 +110,9 @@ em_conv = Employed_days/365
 
 #Prediction button
 if st.button("Check my approval"):
-
-        with open('rfc_model.pkl','rb') as fid:
+        pkl_path = Path(__file__).parents[1] / 'Streamlit/rfc_model.pkl'
+        # with open('rfc_model.pkl','rb') as fid:
+        with open(pkl_path,'rb') as fid:
                 model = pickle.load(fid)
         
         pred = model.predict([[GENDER, Car_Owner, Propert_Owner, CHILDREN, Annual_income,
@@ -123,3 +125,5 @@ if st.button("Check my approval"):
         else:
                 st.error("Sorry, your approval chances are low")
 
+        # pkl_path = Path(__file__).parents[1] / 'Streamlit/rfc_model.pkl'
+        # print("path-----------",pkl_path)
